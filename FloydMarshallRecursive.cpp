@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <ctime>
 using namespace std;
 
 #define BASECASE 10

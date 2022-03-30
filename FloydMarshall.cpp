@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <ctime>
 using namespace std;
 
 float* Matrix2DRandom(int x, int y) {
