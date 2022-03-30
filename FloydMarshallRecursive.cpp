@@ -18,7 +18,7 @@ float* Matrix2DRandom(int x, int y) {
 
 void FloydMarshallRecursive(float *A, float *B, float *C, int n , int vertexCount) {
 
-    if (n > 10){
+    if (n > 64){
         float *A11 = A;
         float *A12 = A+(n/2);
         float *A21 = A+(n*vertexCount/2);
@@ -54,7 +54,9 @@ void FloydMarshallRecursive(float *A, float *B, float *C, int n , int vertexCoun
 
 int main() {
 
-    float *adjacencyDenseMatrix = Matrix2DRandom(512, 512);
-    FloydMarshallRecursive(adjacencyDenseMatrix, adjacencyDenseMatrix, adjacencyDenseMatrix, 512, 512 );
+    int size = 100;
+
+    float *adjacencyDenseMatrix = Matrix2DRandom(size, size);
+    FloydMarshallRecursive(adjacencyDenseMatrix, adjacencyDenseMatrix, adjacencyDenseMatrix, size, size );
     return 0;
 }
