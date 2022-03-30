@@ -31,7 +31,7 @@ void FloydMarshall(float *A, float *B, float *C, int vertexCount) {
 
 int main() {
 
-    float *adjacencyDenseMatrix = Matrix2DRandom(100, 100);
-    FloydMarshall(adjacencyDenseMatrix, adjacencyDenseMatrix, adjacencyDenseMatrix, 100 );
+    float *adjacencyDenseMatrix = Matrix2DRandom(512, 512);
+    FloydMarshall(adjacencyDenseMatrix, adjacencyDenseMatrix, adjacencyDenseMatrix, 512 );
     return 0;
 }
