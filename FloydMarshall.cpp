@@ -26,9 +26,6 @@ void FloydMarshall(float *A, float *B, float *C, int vertexCount) {
 }
 
 
-
-
-
 int main() {
 
     int size = 1024;

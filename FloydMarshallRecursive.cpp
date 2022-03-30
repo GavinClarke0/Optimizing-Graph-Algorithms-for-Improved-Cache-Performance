@@ -3,7 +3,7 @@
 #include <ctime>
 using namespace std;
 
-#define BASECASE 10
+#define BASECASE 64.0
 
 float* Matrix2DRandom(int x, int y) {
     float *matrix = new float[x * y];
@@ -18,7 +18,7 @@ float* Matrix2DRandom(int x, int y) {
 
 void FloydMarshallRecursive(float *A, float *B, float *C, int n , int vertexCount) {
 
-    if (n > 64){
+    if (n > BASECASE){
         float *A11 = A;
         float *A12 = A+(n/2);
         float *A21 = A+(n*vertexCount/2);
