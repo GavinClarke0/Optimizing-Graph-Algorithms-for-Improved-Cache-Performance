@@ -35,4 +35,22 @@ reference: http://www.cs.hongik.ac.kr/~jsp/parkTPDS04.pdf
 
       15.240372000 seconds user
        0.011987000 seconds sys
+
+ Performance counter stats for './FloydMarshallTiled':
+
+        91,409,309      cache-references                                              (79.97%)
+            73,955      cache-misses              #    0.081 % of all cache refs      (79.94%)
+    47,675,782,251      cycles                                                        (40.09%)
+    70,050,251,192      instructions              #    1.47  insn per cycle           (60.03%)
+     5,449,523,273      branches                                                      (80.00%)
+             1,148      faults
+                 8      migrations
+
+    15.421036311 seconds time elapsed
+
+    15.392539000 seconds user
+     0.011987000 seconds sys
+
+
+ puck1039:~/4402/finalProject/Optimizing-Graph-Algorithms-for-Improved-Cac
 ```
