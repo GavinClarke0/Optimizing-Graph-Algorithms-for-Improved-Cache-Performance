@@ -5,7 +5,7 @@ using namespace std;
 
 float* Matrix2DRandom(int x, int y) {
     float *matrix = new float[x * y];
-    std::srand(std::time(nullptr));
+    std::srand(1999);
     for (int i = 0; i < x; i++) {
         for (int j = 0; j < x; j++) {
             matrix[(i * x) + j] = (float)(rand());
@@ -35,7 +35,14 @@ void FloydMarshall(float *A, int vertexCount) {
     }
 }
 
-
+void PrintMatrix(float *T, int TRowSize){
+    for(int i = 0; i < TRowSize; i++){
+        for (int j = 0; j < TRowSize; j++){
+            cout << T[(i * TRowSize) + j] << " ";
+        }
+        cout << ""<< endl;
+    }
+}
 
 int main() {
 
@@ -43,5 +50,8 @@ int main() {
 
     float *adjacencyDenseMatrix = Matrix2DRandom(size, size);
     FloydMarshall(adjacencyDenseMatrix, adjacencyDenseMatrix, adjacencyDenseMatrix, size );
+
+    PrintMatrix(adjacencyDenseMatrix,size);
+
     return 0;
 }

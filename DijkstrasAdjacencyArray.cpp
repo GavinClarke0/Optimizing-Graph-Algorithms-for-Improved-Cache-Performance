@@ -72,7 +72,7 @@ vector<float> dijkstra(AdjacencyArray list, int sourceVertex,  int TotalVertices
 
 int main(){
 
-    int size = 1000;
+    int size = 1024;
 
     AdjacencyArray list= AdjacencyArray(size);
 

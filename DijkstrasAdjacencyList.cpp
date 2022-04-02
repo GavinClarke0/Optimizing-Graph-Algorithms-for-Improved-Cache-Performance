@@ -97,7 +97,7 @@ vector<int> dijkstra(AdjacencyList list, int sourceVertex){
 
 int main(){
 
-    int size = 1000;
+    int size = 1024;
 
     AdjacencyList list= AdjacencyList(size);
 
