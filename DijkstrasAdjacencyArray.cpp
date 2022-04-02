@@ -71,11 +71,14 @@ vector<float> dijkstra(AdjacencyArray list, int sourceVertex,  int TotalVertices
 }
 
 int main(){
-    AdjacencyArray list= AdjacencyArray(32);
+
+    int size = 1000;
+
+    AdjacencyArray list= AdjacencyArray(size);
 
     std::srand(1999);
-    for(int i = 0; i < 32; i++){
-        for(int j = 0; j < 32; j++){
+    for(int i = 0; i < size; i++){
+        for(int j = 0; j < size; j++){
             list.addEdge(i, j, (float)(rand()));
         }
     }
