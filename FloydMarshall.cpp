@@ -51,7 +51,7 @@ int main() {
     float *adjacencyDenseMatrix = Matrix2DRandom(size, size);
     FloydMarshall(adjacencyDenseMatrix, adjacencyDenseMatrix, adjacencyDenseMatrix, size );
 
-    PrintMatrix(adjacencyDenseMatrix,size);
+    //PrintMatrix(adjacencyDenseMatrix,size);
 
     return 0;
 }
