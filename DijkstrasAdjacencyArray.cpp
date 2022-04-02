@@ -83,5 +83,5 @@ int main(){
         }
     }
 
-    auto result = dijkstra(list, 0, 32);
+    auto result = dijkstra(list, 0, 1000);
 }
