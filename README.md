@@ -50,36 +50,34 @@ reference: http://www.cs.hongik.ac.kr/~jsp/parkTPDS04.pdf
 
     15.392539000 seconds user
      0.011987000 seconds sys
+     
+Performance counter stats for './DijkstrasAdjacencyArray':
 
-     Performance counter stats for './DijkstrasControl':
+         4,199,756      cache-references                                              (81.99%)
+           473,884      cache-misses              #   11.284 % of all cache refs      (75.34%)
+       844,979,447      cycles                                                        (42.67%)
+       917,275,995      instructions              #    1.09  insn per cycle           (65.98%)
+       134,620,308      branches                                                      (82.44%)
+             4,218      faults
+                 0      migrations
 
-     3,488,533,202      cache-references                                              (80.03%)
-     201,540,787      cache-misses              #    5.777 % of all cache refs      (79.90%)
- 150,131,052,364      cycles                                                        (40.07%)
- 16,738,058,217      instructions              #    0.11  insn per cycle           (59.98%)
- 4,134,292,247      branches                                                      (79.99%)
- 15,753      faults
- 88      migrations
+     0.292359688 seconds time elapsed
 
- 49.716899538 seconds time elapsed
+     0.287457000 seconds user
+     0.003992000 seconds sys
 
- 49.552025000 seconds user
- 0.087865000 seconds sys
+ Performance counter stats for './DijkstrasControl':
 
+         6,920,275      cache-references                                              (79.04%)
+           839,687      cache-misses              #   12.134 % of all cache refs      (81.09%)
+       532,940,632      cycles                                                        (39.87%)
+       713,429,748      instructions              #    1.34  insn per cycle           (60.83%)
+       127,941,620      branches                                                      (79.71%)
+            15,758      faults
+                 1      migrations
 
- Performance counter stats for './DijkstrasAdjacencyArray':
+    0.191409886 seconds time elapsed
 
- 4,471,657      cache-references                                              (78.64%)
- 457,205      cache-misses              #   10.225 % of all cache refs      (79.67%)
- 843,272,183      cycles                                                        (41.69%)
- 926,859,313      instructions              #    1.10  insn per cycle           (60.34%)
- 135,556,525      branches                                                      (79.04%)
- 4,215      faults
- 1      migrations
-
- 0.300712605 seconds time elapsed
-
- 0.288264000 seconds user
- 0.012011000 seconds sys
-
+    0.125418000 seconds user
+    0.064732000 seconds sys
 ```
