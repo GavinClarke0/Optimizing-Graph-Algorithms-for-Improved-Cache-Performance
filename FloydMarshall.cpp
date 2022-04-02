@@ -25,6 +25,17 @@ void FloydMarshall(float *A, float *B, float *C, int vertexCount) {
     }
 }
 
+void FloydMarshall(float *A, int vertexCount) {
+    for  (int k = 0; k < vertexCount; k++ ) {
+        for (int i = 0; i < vertexCount; i++ ){
+            for (int j = 0; j < vertexCount; j++ ){
+                A[(vertexCount * i) + j] = min(A[(vertexCount * i) + j], A[(vertexCount * i) + k] + A[(vertexCount * k) + j]);
+            }
+        }
+    }
+}
+
+
 
 int main() {
 
