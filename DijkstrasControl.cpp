@@ -17,9 +17,11 @@ struct Vertex {
 
 class AdjacencyList {
 public:
-    vector<Vertex *> vertices;
+    vector<Vertex *> edgesStart;
+    vector<Vertex *> edgesEnd;
     AdjacencyList(int verticeCount){
-        vertices = vector<Vertex *>(verticeCount);
+        edgesStart = vector<Vertex *>(verticeCount);
+        edgesEnd = vector<Vertex *>(verticeCount);
     };
 };
 
@@ -38,23 +40,20 @@ void addEdge(AdjacencyList *list, int vertex1, int vertex2, float weight ){
             weight: weight,
     };
 
-    Vertex *currentVertex = list->vertices[vertex1];
-    if (currentVertex != nullptr){
-        while (currentVertex->next != nullptr){
-            currentVertex = currentVertex->next;
-        }
-        currentVertex->next = newV1;
+    if (list->edgesStart[vertex1] == nullptr ){
+        list->edgesStart[vertex1] =  newV1;
+        list->edgesEnd[vertex1] =  newV1;
     } else {
-        list->vertices[vertex1] =  newV1;
+        list->edgesEnd[vertex1]->next = newV1;
+        list->edgesEnd[vertex1] = newV1;
     }
-    currentVertex = list->vertices[vertex2];
-    if (currentVertex != nullptr){
-        while (currentVertex->next != nullptr){
-            currentVertex = currentVertex->next;
-        }
-        currentVertex->next = newV2;
+
+    if (list->edgesStart[vertex2] == nullptr ){
+        list->edgesStart[vertex2] =  newV2;
+        list->edgesEnd[vertex2] =  newV2;
     } else {
-        list->vertices[vertex2] =  newV2;
+        list->edgesEnd[vertex2]->next = newV2;
+        list->edgesEnd[vertex2] = newV2;
     }
 }
 
@@ -62,7 +61,7 @@ typedef pair<int, float> Pair;
 
 
 vector<int> dijkstra(AdjacencyList list, int sourceVertex){
-    int TotalVertices = list.vertices.size();
+    int TotalVertices = list.edgesStart.size();
     vector<bool> F = vector<bool>(TotalVertices, false);
     float INF = numeric_limits<float>::infinity();
 
@@ -77,8 +76,8 @@ vector<int> dijkstra(AdjacencyList list, int sourceVertex){
         pQueue.pop();
 
         if (F[leastCostVertex]) continue;
-        // 'i' is used to get all adjacent vertices of a vertex
-        Vertex * currentVertex = list.vertices[leastCostVertex];
+        // 'i' is used to get all adjacent edgesStart of a vertex
+        Vertex * currentVertex = list.edgesStart[leastCostVertex];
         while(currentVertex != nullptr) {
             if (dist[currentVertex->id] > dist[leastCostVertex] + currentVertex->weight)
             {
