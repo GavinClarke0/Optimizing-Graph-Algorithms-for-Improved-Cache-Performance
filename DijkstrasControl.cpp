@@ -14,11 +14,14 @@ struct Vertex {
 
 class AdjacencyList {
 public:
-    Vertex **vertices;
+    vector<Vertex *> vertices;
+    AdjacencyList(int verticeCount){
+        vertices = vector<Vertex *>(verticeCount);
+    };
 };
 
 
-void AddEdge(AdjacencyList list, int vertex1, int vertex2, float weight ){
+void addEdge(AdjacencyList *list, int vertex1, int vertex2, float weight ){
 
     Vertex * newV1 = new Vertex{
             id: vertex2,
@@ -32,31 +35,32 @@ void AddEdge(AdjacencyList list, int vertex1, int vertex2, float weight ){
             weight: weight,
     };
 
-    Vertex *currentVertex = list.vertices[vertex1];
+    Vertex *currentVertex = list->vertices[vertex1];
     if (currentVertex != nullptr){
         while (currentVertex->next != nullptr){
             currentVertex = currentVertex->next;
         }
         currentVertex->next = newV1;
     } else {
-        list.vertices[vertex1] =  newV1;
+        list->vertices[vertex1] =  newV1;
     }
-    currentVertex = list.vertices[vertex2];
+    currentVertex = list->vertices[vertex2];
     if (currentVertex != nullptr){
         while (currentVertex->next != nullptr){
             currentVertex = currentVertex->next;
         }
         currentVertex->next = newV2;
     } else {
-        list.vertices[vertex2] =  newV2;
+        list->vertices[vertex2] =  newV2;
     }
 }
 
 typedef pair<int, float> Pair;
 
 
-void dijkstra(AdjacencyList list, int sourceVertex){
-    int TotalVertices;
+vector<int> dijkstra(AdjacencyList list, int sourceVertex){
+    int TotalVertices = list.vertices.size();
+    vector<bool> F = vector(TotalVertices, false);
     float INF = numeric_limits<float>::infinity();
 
     priority_queue< Pair, vector <Pair> , greater<Pair> > pQueue;
@@ -69,6 +73,7 @@ void dijkstra(AdjacencyList list, int sourceVertex){
         int leastCostVertex = pQueue.top().second;
         pQueue.pop();
 
+        if (F[leastCostVertex]) continue;
         // 'i' is used to get all adjacent vertices of a vertex
         Vertex * currentVertex = list.vertices[leastCostVertex];
         while(currentVertex != nullptr) {
@@ -77,8 +82,12 @@ void dijkstra(AdjacencyList list, int sourceVertex){
                 dist[currentVertex->id] = dist[leastCostVertex] + currentVertex->weight;
                 pQueue.push(make_pair(dist[currentVertex->id], currentVertex->id));
             }
+            currentVertex = currentVertex->next;
         }
+        F[leastCostVertex] = true;
     }
+
+    return dist;
 }
 
 
@@ -86,6 +95,15 @@ void dijkstra(AdjacencyList list, int sourceVertex){
 
 int main(){
 
+    AdjacencyList list= AdjacencyList(32);
 
 
+    std::srand(1999);
+    for(int i = 0; i < 32; i++){
+        for(int j = 0; j < 32; j++){
+            addEdge(&list, i, j, (float)(rand()));
+        }
+    }
+
+    auto result = dijkstra(list, 0);
 }

@@ -13,34 +13,69 @@ struct Vertex {
 
 class AdjacencyArray {
 public:
-    Vertex **vertices;
-    int *edgeCount;
+    vector<Vertex> *vertices;
+
+    AdjacencyArray(int verticeCount){
+        vertices = new vector<Vertex>[verticeCount] ;
+    };
+
+    void addEdge( int vertex1, int vertex2, float weight){
+
+        vertices[vertex1].push_back(Vertex{
+                id: vertex2,
+                weight: weight,
+        });
+
+        vertices[vertex2].push_back(Vertex{
+                id: vertex1,
+                weight: weight,
+        });
+    }
 };
 
 
 typedef pair<int, float> Pair;
 
-void dijkstra(AdjacencyArray list, int sourceVertex){
-    int TotalVertices;
+vector<float> dijkstra(AdjacencyArray list, int sourceVertex,  int TotalVertices) {
+
+    vector<bool> F = vector(TotalVertices, false);
     float INF = numeric_limits<float>::infinity();
 
+
     priority_queue< Pair, vector <Pair> , greater<Pair> > pQueue;
-    vector<int> dist(TotalVertices, INF);
+    vector<float> dist(TotalVertices, INF);
     pQueue.push(make_pair(0, sourceVertex));
     dist[sourceVertex] = 0;
+
 
     while (!pQueue.empty())
     {
         int leastCostVertex = pQueue.top().second;
         pQueue.pop();
-        for (int i =0; i < list.edgeCount[leastCostVertex]; i++){
-            Vertex currentVertex = list.vertices[leastCostVertex][i];
-            dist[currentVertex.id] = dist[leastCostVertex] + currentVertex.weight;
-            pQueue.push(make_pair(dist[currentVertex.id], currentVertex.id));
+
+        if (F[leastCostVertex]) continue;
+
+        for (auto& currentVertex : list.vertices[leastCostVertex]) {
+            if (!F[currentVertex.id] && dist[currentVertex.id] > dist[leastCostVertex] + currentVertex.weight) {
+                dist[currentVertex.id] = dist[leastCostVertex] + currentVertex.weight;
+                pQueue.push(make_pair(dist[currentVertex.id], currentVertex.id));
+            }
         }
+        F[leastCostVertex] = true;
     }
+
+    return dist;
 }
 
 int main(){
+    AdjacencyArray list= AdjacencyArray(32);
 
+    std::srand(1999);
+    for(int i = 0; i < 32; i++){
+        for(int j = 0; j < 32; j++){
+            list.addEdge(i, j, (float)(rand()));
+        }
+    }
+
+    auto result = dijkstra(list, 0, 32);
 }
