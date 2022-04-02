@@ -41,7 +41,7 @@ typedef pair<int, float> Pair;
 
 vector<float> dijkstra(AdjacencyArray list, int sourceVertex,  int TotalVertices) {
 
-    vector<bool> F = vector(TotalVertices, false);
+    vector<bool> F = vector<bool>(TotalVertices, false);
     float INF = numeric_limits<float>::infinity();
 
 

@@ -63,7 +63,7 @@ typedef pair<int, float> Pair;
 
 vector<int> dijkstra(AdjacencyList list, int sourceVertex){
     int TotalVertices = list.vertices.size();
-    vector<bool> F = vector(TotalVertices, false);
+    vector<bool> F = vector<bool>(TotalVertices, false);
     float INF = numeric_limits<float>::infinity();
 
     priority_queue< Pair, vector <Pair> , greater<Pair> > pQueue;
