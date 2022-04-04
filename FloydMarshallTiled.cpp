@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <cstdlib>
 #include <ctime>
 using namespace std;
 
@@ -71,9 +72,9 @@ void PrintMatrix(float *T, int TRowSize){
     }
 }
 
-int main() {
+int main(int argc, char *argv[]) {
 
-    int size = 1024;
+    int size = atoi(argv[1]);;
 
     float *adjacencyDenseMatrix = Matrix2DRandom(size, size);
     FloydMarshallTiled(adjacencyDenseMatrix, 64, size );

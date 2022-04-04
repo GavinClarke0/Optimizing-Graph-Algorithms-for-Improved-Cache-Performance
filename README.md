@@ -4,53 +4,68 @@ reference: http://www.cs.hongik.ac.kr/~jsp/parkTPDS04.pdf
 
 
 ```c++
-
  Performance counter stats for './FloydMarshall':
 
-        76,515,635      cache-references                                              (79.95%)
-         3,079,906      cache-misses              #    4.025 % of all cache refs      (79.94%)
-    47,660,570,924      cycles                                                        (40.11%)
-    69,913,367,848      instructions              #    1.47  insn per cycle           (60.07%)
-     5,414,338,100      branches                                                      (79.99%)
-             1,149      faults                                                      
-                11      migrations                                                  
+        84,435,496      cache-references                                              (17.95%)
+         4,108,988      cache-misses              #    4.866 % of all cache refs      (18.32%)
+    47,946,303,273      cycles                                                        (18.47%)
+    69,916,717,332      instructions              #    1.46  insn per cycle           (27.78%)
+     5,422,992,711      branches                                                      (37.03%)
+             1,146      faults                                                      
+                43      migrations                                                  
+        13,688,294      L1-dcache-load-misses     #    0.04% of all L1-dcache hits    (46.05%)
+    38,598,744,594      L1-dcache-loads                                               (45.85%)     
+         7,538,198      L1-icache-load-misses                                         (45.70%)
+        82,971,449      LLC-loads                                                     (45.26%)
+         3,906,814      LLC-load-misses           #    4.71% of all LL-cache hits     (17.88%)
+        69,786,160      LLC-stores                                                    (17.88%)         
 
-      15.469804382 seconds time elapsed
+      16.243511341 seconds time elapsed
 
-      15.447001000 seconds user
-       0.003994000 seconds sys
-
+      16.168478000 seconds user
+       0.051924000 seconds sys
 
  Performance counter stats for './FloydMarshallRecursive':
 
-       123,919,661      cache-references                                              (80.06%)
-           241,695      cache-misses              #    0.195 % of all cache refs      (79.96%)
-    47,119,508,631      cycles                                                        (39.98%)
-    70,057,280,700      instructions              #    1.49  insn per cycle           (60.05%)
-     5,459,356,529      branches                                                      (79.99%)
-             1,149      faults                                                      
-                 2      migrations                                                  
+       125,240,497      cache-references                                              (18.05%)
+           489,855      cache-misses              #    0.391 % of all cache refs      (18.25%)
+    48,377,223,028      cycles                                                        (18.26%)
+    70,038,586,375      instructions              #    1.45  insn per cycle           (27.42%)
+     5,465,402,996      branches                                                      (36.63%)
+             1,146      faults                                                      
+                22      migrations                                                  
+        58,228,811      L1-dcache-load-misses     #    0.15% of all L1-dcache hits    (45.88%)
+    38,897,119,194      L1-dcache-loads                                               (45.70%)     
+         2,468,009      L1-icache-load-misses                                         (45.70%)
+       124,463,377      LLC-loads                                                     (45.47%)
+           321,641      LLC-load-misses           #    0.26% of all LL-cache hits     (17.99%)
+           932,054      LLC-stores                                                    (18.08%)
+      16.549241820 seconds time elapsed
 
-      15.268183083 seconds time elapsed
-
-      15.240372000 seconds user
-       0.011987000 seconds sys
-
+      16.521336000 seconds user
+       0.007989000 seconds sys
+       
  Performance counter stats for './FloydMarshallTiled':
 
-        91,409,309      cache-references                                              (79.97%)
-            73,955      cache-misses              #    0.081 % of all cache refs      (79.94%)
-    47,675,782,251      cycles                                                        (40.09%)
-    70,050,251,192      instructions              #    1.47  insn per cycle           (60.03%)
-     5,449,523,273      branches                                                      (80.00%)
-             1,148      faults
-                 8      migrations
+        94,536,131      cache-references                                              (18.02%)
+           260,144      cache-misses              #    0.275 % of all cache refs      (18.14%)
+    48,998,640,908      cycles                                                        (18.38%)
+    70,057,554,803      instructions              #    1.43  insn per cycle           (27.81%)
+     5,463,144,006      branches                                                      (37.20%)
+             1,145      faults                                                      
+                44      migrations                                                  
+        75,670,563      L1-dcache-load-misses     #    0.20% of all L1-dcache hits    (46.23%)
+    38,501,755,737      L1-dcache-loads                                               (46.07%)     
+         4,261,538      L1-icache-load-misses                                         (45.79%)
+        93,782,008      LLC-loads                                                     (45.18%)
+           150,877      LLC-load-misses           #    0.16% of all LL-cache hits     (17.81%)
+           303,861      LLC-stores                                                    (18.00%)            
 
-    15.421036311 seconds time elapsed
+      16.868847160 seconds time elapsed
 
-    15.392539000 seconds user
-     0.011987000 seconds sys
-     
+      16.799205000 seconds user
+       0.047940000 seconds sys
+       
 Performance counter stats for './DijkstrasAdjacencyArray':
 
          4,199,756      cache-references                                              (81.99%)

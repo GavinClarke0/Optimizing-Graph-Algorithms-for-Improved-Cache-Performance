@@ -7,6 +7,7 @@
 #include <iostream>
 #include <algorithm>
 #include <ctime>
+#include <cstdlib>
 using namespace std;
 
 struct Vertex {
@@ -93,11 +94,9 @@ vector<int> dijkstra(AdjacencyList list, int sourceVertex){
 }
 
 
+int main(int argc, char *argv[]) {
 
-
-int main(){
-
-    int size = 1024;
+    int size = atoi(argv[1]);;
 
     AdjacencyList list= AdjacencyList(size);
 
@@ -108,6 +107,5 @@ int main(){
             addEdge(&list, i, j, (float)(rand()));
         }
     }
-
     auto result = dijkstra(list, 0);
 }

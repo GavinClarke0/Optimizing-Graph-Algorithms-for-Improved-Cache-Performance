@@ -7,6 +7,7 @@
 #include <iostream>
 #include <algorithm>
 #include <ctime>
+#include <cstdlib>
 using namespace std;
 
 struct Vertex {
@@ -70,12 +71,11 @@ vector<float> dijkstra(AdjacencyArray list, int sourceVertex,  int TotalVertices
     return dist;
 }
 
-int main(){
+int main(int argc, char *argv[]) {
 
-    int size = 1024;
+    int size = atoi(argv[1]);;
 
     AdjacencyArray list= AdjacencyArray(size);
-
     std::srand(1999);
     for(int i = 0; i < size; i++){
         for(int j = 0; j < size; j++){

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <ctime>
+#include <cstdlib>
 using namespace std;
 
 #define BASECASE 64.0
@@ -52,9 +53,9 @@ void FloydMarshallRecursive(float *A, float *B, float *C, int n , int vertexCoun
     }
 }
 
-int main() {
+int main(int argc, char *argv[]) {
 
-    int size = 1024;
+    int size = atoi(argv[1]);;
 
     float *adjacencyDenseMatrix = Matrix2DRandom(size, size);
     FloydMarshallRecursive(adjacencyDenseMatrix, adjacencyDenseMatrix, adjacencyDenseMatrix, size, size );
