@@ -20,7 +20,10 @@ void FloydMarshall(float *A, float *B, float *C, int vertexCount) {
     for  (int k = 0; k < vertexCount; k++ ) {
         for (int i = 0; i < vertexCount; i++ ){
             for (int j = 0; j < vertexCount; j++ ){
-                    A[(vertexCount * i) + j] = min(A[(vertexCount * i) + j], B[(vertexCount * i) + k] + C[(vertexCount * k) + j]);
+                cout << "(" << i << " " << j << ") ";
+                cout << "(" << i << " " << k << ") ";
+                cout << "(" << k << " " << j << ")" << endl;
+                //A[(vertexCount * i) + j] = min(A[(vertexCount * i) + j], B[(vertexCount * i) + k] + C[(vertexCount * k) + j]);
             }
         }
     }
@@ -49,6 +52,7 @@ int main(int argc, char *argv[]) {
 
     int size = atoi(argv[1]);
 
+    //int size = 2;
     float *adjacencyDenseMatrix = Matrix2DRandom(size, size);
     FloydMarshall(adjacencyDenseMatrix, adjacencyDenseMatrix, adjacencyDenseMatrix, size );
 

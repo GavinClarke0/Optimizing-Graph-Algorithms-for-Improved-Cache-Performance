@@ -4,7 +4,7 @@
 #include <cstdlib>
 using namespace std;
 
-#define BASECASE 32.0
+#define BASECASE 8
 
 float* Matrix2DRandom(int x, int y) {
     float *matrix = new float[x * y];
