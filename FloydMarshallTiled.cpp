@@ -77,7 +77,7 @@ int main(int argc, char *argv[]) {
     int size = atoi(argv[1]);;
 
     float *adjacencyDenseMatrix = Matrix2DRandom(size, size);
-    FloydMarshallTiled(adjacencyDenseMatrix, 64, size );
+    FloydMarshallTiled(adjacencyDenseMatrix, 32, size );
     //PrintMatrix(adjacencyDenseMatrix,size);
     return 0;
 }
